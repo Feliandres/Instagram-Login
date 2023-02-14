@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\LoginControler;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
 
@@ -25,7 +25,7 @@ Route::get('/register', [pageController::class, 'register'])->name('register');
 Route::post('/register', [RegisterController::class,'registerUser']);
 
 Route::get('/login', [pageController::class, 'login'])->name('login');
-Route::post('/login', [LoginControler::class,'login']);
+Route::post('/login', [LoginController::class,'login']);
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
