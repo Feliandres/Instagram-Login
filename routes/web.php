@@ -31,6 +31,14 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::resource('report',ReportController::class);
 Route::get('/report',[ReportController::class, 'index'])->name('report');
 
+// Route::get('/instagram/authorize', function () {
+  //   return InstagramOAuth::authorize();
+ //});
 
-Route::get('insta/login', 'SocialController@redirectToInstagramProvider')->name('insta.login');
-Route::get('instagram', 'SocialController@instagramProviderCallback')->name('insta.login.instagram');
+// Route::get('/instagram/callback', function () {
+//     $response = InstagramOAuth::getAccessToken();
+//     // haz lo que necesites con la respuesta
+// });
+
+//Route::get('insta/login', 'SocialController@redirectToInstagramProvider')->name('insta.login');
+//Route::get('instagram', 'SocialController@instagramProviderCallback')->name('insta.login.instagram');
