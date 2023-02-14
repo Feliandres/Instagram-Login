@@ -20,7 +20,7 @@
                     <div class="mb-4">
                         @if (Session::has('message'))
                         <div class='flex flex-row mb-5 p-3 text-sm text-white bg-red-500 rounded-lg text-center w-full'>
-                            <img src="{{asset('/storage/error_login-icon.png')}}" alt="Icon"/>
+                            <img src="{{asset('/storage/error_login-icon.png')}}" alt="Maritozzo"/>
                             <span class="text-1xl font-bold ml-2">{{ Session::get('message') }} </span>
                         </div>
                         @endif
@@ -66,19 +66,17 @@
                         </button>
                     </div>
                     <hr class="mb-6 border-t" />
-
                     <div class="mb-6 text-center mx-10">
-                        <a
+                        <button
                             class="w-full rounded-full px-4 py-2 font-bold text-white bg-black hover:bg-gray-900 focus:outline-none focus:shadow-outline"
-                            href="{{ route('insta.login') }}"
+                            type="submit"
                         >
                             <div class="flex justify-center">
                                 <img src="{{asset('/storage/instagram.svg')}}" alt="Maritozzo" class="w-7 h-7 mx-3" />
                                 <img src="{{asset('/storage/letters-instagram.png')}}" alt="Maritozzo" class="w-24 h-8" />
                             </div>
-                        </a>
+                        </button>
                     </div>
-
                     <div class="text-center">
                         <a
                             class="inline-block text-sm text-green-500 align-baseline hover:text-green-100 font-extrabold"
