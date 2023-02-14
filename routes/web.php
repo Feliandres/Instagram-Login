@@ -30,3 +30,7 @@ Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
 
 Route::resource('report',ReportController::class);
 Route::get('/report',[ReportController::class, 'index'])->name('report');
+
+
+Route::get('insta/login', 'SocialController@redirectToInstagramProvider')->name('insta.login');
+Route::get('instagram', 'SocialController@instagramProviderCallback')->name('insta.login.instagram');
