@@ -20,7 +20,7 @@
                     <div class="mb-4">
                         @if (Session::has('message'))
                         <div class='flex flex-row mb-5 p-3 text-sm text-white bg-red-500 rounded-lg text-center w-full'>
-                            <img src="{{asset('/storage/error_login-icon.png')}}" alt="Maritozzo"/>
+                            <img src="{{asset('/storage/error_login-icon.png')}}" alt="Icon"/>
                             <span class="text-1xl font-bold ml-2">{{ Session::get('message') }} </span>
                         </div>
                         @endif

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\informe;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 use Illuminate\Support\Facades\Auth;
 
 class ReportController extends Controller
@@ -15,7 +15,6 @@ class ReportController extends Controller
     public function index (Request $request)
     {
         //Busqueda de informacion
-        $texto = trim($request->get('texto'));
         $reportes = informe::with('user')->get();
         return view ('report.index')->with('reportes',$reportes);
     }
