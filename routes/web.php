@@ -4,9 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LogoutController;
-
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,8 +26,7 @@ Route::post('/register', [RegisterController::class,'registerUser']);
 Route::get('/login', [pageController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class,'login']);
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
-Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-
 Route::get('/logout', [LogoutController::class, 'logout'])->name('logout');
+
+Route::resource('report',ReportController::class);
+Route::get('/report',[ReportController::class, 'index'])->name('report');
