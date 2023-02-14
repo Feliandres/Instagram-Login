@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\informe;
+use App\Models\Informe;
 use App\Models\User;
 use Illuminate\Http\Request;
-use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class ReportController extends Controller
 {
@@ -15,7 +16,8 @@ class ReportController extends Controller
     public function index (Request $request)
     {
         //Busqueda de informacion
-        $reportes = informe::with('user')->get();
+        $texto = trim($request->get('texto'));
+        $reportes = Informe::with('user')->get();
         return view ('report.index')->with('reportes',$reportes);
     }
 
@@ -36,7 +38,7 @@ class ReportController extends Controller
         //Campos a validar
         $campos=[
             'title'=>'required|string|max:50',
-            'information'=>'required|string|max:200',
+            'information'=>'required|string|min:200',
             'image'=>'required|max:1000|mimes:jpeg,png,svg,jpg',
         ];
 
@@ -55,7 +57,7 @@ class ReportController extends Controller
         }
         $datosReporte['user_id'] = $user_id;
 
-        informe::insert($datosReporte);
+        Informe::insert($datosReporte);
         return to_route('report')->with('mensaje','Registro Creado');
     }
 

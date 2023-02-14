@@ -37,9 +37,9 @@
     <div class="p-12">
       <div class="card h-96 card-side glass hover:backdrop-saturate-50 hover:bg-white/30 hover:text-neutral-700 shadow-xl">
         <figure><img class="w-auto h-auto " src="{{asset ('storage').'/'.$reporte->image}}"  alt="image" /></figure>
-        <div class="card-body p-4 w-96">
+        <div class="card-body py-4">
             <h2 class="card-title italic text-2xl hover:text-stone-900">{{$reporte -> title}}</h2>
-            <p class="hover:text-stone-900 italic text-base">{{$reporte -> information}}</p>
+            <p class="hover:text-stone-900 italic text-xl">{{$reporte -> information}}</p>
             <h3 class="justify-start text-xl hover:text-stone-900">Autor: {{$reporte->user->username}}</h3>
             <div class="card-actions justify-end">
             </div>
