@@ -28,9 +28,15 @@
             <div class="hidden lg:flex lg:items-center lg:w-auto w-full bg-emerald-500" id="menu">
                 <nav>
                     <ul class="lg:flex items-center justify-between text-base text-gray-700 pt-4 lg:pt-0">
-                        <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('register')}}">Informes</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('register')}}">Registrate</a></li>
-                    <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold lg:mb-0 mb-2" href="{{route('login')}}">Inicia Sesión</a></li>
+                        @guest
+                            <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('register')}}">Informes</a></li>
+                            <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('register')}}">Registrate</a></li>
+                            <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold lg:mb-0 mb-2" href="{{route('login')}}">Inicia Sesión</a></li>
+                        @endguest
+                        @auth
+                            <li><a class="lg:p-4 py-3 px-0 block border-b-2 border-transparent hover:border-emerald-900 font-bold" href="{{route('report')}}">Informes</a></li>
+                            <li><a class="lg:p-4 py-3 px-0 bg-red-400 block border-b-2 border-transparent hover:border-red-800 font-bold lg:mb-0 mb-2" href="{{route('logout')}}">Salir</a></li>
+                        @endauth
                     </ul>
                 </nav>
             </div>
