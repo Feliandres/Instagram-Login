@@ -14,15 +14,15 @@
             <!-- Col -->
             <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg lg:rounded-l-none bg-gray-700 bg-opacity-50">
                 <div class="my-3 text-center mx-10">
-                    <button
+                    <a
                         class="w-full rounded-full px-4 py-2 font-bold text-white bg-black hover:bg-gray-900 focus:outline-none focus:shadow-outline"
-                        type="submit"
+                        href="{{ route('instagram') }}"
                     >
                         <div class="flex justify-center">
                             <img src="{{asset('/storage/instagram.svg')}}" alt="Maritozzo" class="w-7 h-7 mx-3" />
                             <img src="{{asset('/storage/letters-instagram.png')}}" alt="Maritozzo" class="w-24 h-8" />
                         </div>
-                    </button>
+                    </a>
                 </div>
                 <form class="px-8 pt-6 pb-8 mb-4 rounded" method="POST" action="/register">
                     @csrf
