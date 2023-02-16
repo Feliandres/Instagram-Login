@@ -13,13 +13,13 @@ class pageController extends Controller
     }
     function register(){
         if(Auth::check()){
-            return redirect('/home');
+            return redirect('/report');
         }
         return view('auth.register');
     }
     function login(){
         if(Auth::check()){
-            return redirect('/home');
+            return redirect('/report');
         }
         return view('auth.login');
     }
