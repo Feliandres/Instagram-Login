@@ -5,16 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\Informe;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+
 class ReportController extends Controller
 {
     //
     public function index (Request $request)
     {
         //Busqueda de informacion
-        $texto = trim($request->get('texto'));
         $reportes = Informe::with('user')->get();
         return view ('report.index')->with('reportes',$reportes);
     }
@@ -56,6 +55,15 @@ class ReportController extends Controller
         $datosReporte['user_id'] = $user_id;
 
         Informe::insert($datosReporte);
+        /*Route::get('/notification', function(){
+            $user_id=Auth::id();
+            $users = User::all()-> except($user_id);
+            Notification::send($users, new \App\Notifications\ReportUser);
+            return('Notificación enviada');
+        
+        })->name('notification');*/
+        $users = User::all()-> except($user_id);
+        Notification::send($users, new \App\Notifications\ReportUser);
         return to_route('report')->with('mensaje','Registro Creado');
     }
 
